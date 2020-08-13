@@ -27,7 +27,6 @@ from tensorflow.keras import optimizers
 from polyaxon import tracking
 from polyaxon.tracking.contrib.keras import PolyaxonKerasCallback, PolyaxonKerasModelCheckpoint
 
-print("Started experiment")
 
 OPTIMIZERS = {
     'adam': optimizers.Adam,
@@ -176,5 +175,4 @@ if __name__ == '__main__':
               y=y_train,
               epochs=args.epochs,
               validation_data=(X_test, y_test),
-              callbacks=[tensorboard_callback, plx_callback, plx_model_callback],
-			  verbose-1)
+              callbacks=[tensorboard_callback, plx_callback, plx_model_callback])

@@ -1,0 +1,24 @@
+version: 1.1
+kind: component
+name: data-experiment
+description: TF keras example with own data
+tags: [examples, data]
+run:
+  kind: job
+  container:
+    image: polyaxon/polyaxon-quick-start
+    command: [python3, model.py]
+inputs:
+- {name: some-file-names, type: artifacts}
+- {name: conv1_size, type: int, value: 32, isOptional: true}
+- {name: conv2_size, type: int, value: 64, isOptional: true}
+- {name: dropout, type: float, value: 0.2, isOptional: true}
+- {name: hidden1_size, type: int, value: 500, isOptional: true}
+- {name: conv_activation, type: str, value: relu, isOptional: true}
+- {name: dense_activation, type: str, value: relu, isOptional: true}
+- {name: optimizer, type: str, value: adam, isOptional: true}
+- {name: learning_rate, type: float, value: 0.001, isOptional: true}
+- {name: epochs, type: int}
+outputs:
+- {name: loss, type: float}
+- {name: validation, type: float}
